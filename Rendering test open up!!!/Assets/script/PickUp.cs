@@ -6,9 +6,9 @@ public class PickUp : MonoBehaviour
 {
     //public GameObject ObjectPick;
 
-    void OnMouseDown()
+    void OnMouseDown(GameObject ObjectPick)
     {
-       // ObjectPick.SetActive(false);
+       ObjectPick.SetActive(false);
         Debug.Log("pick helmet");
     }
 
