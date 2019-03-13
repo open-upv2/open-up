@@ -10,19 +10,25 @@ public class Inventory : MonoBehaviour
     // Start is called before the first frame update
     public void OpenMenu()
     {
+        if (menu != null)
+        {
+            bool isActive = menu.activeSelf;
+
+            menu.SetActive(!isActive);
+            Roll();
+        }
+    }
+
+    public void Roll()
+    {
         if (menu.transform.position.x < 0)
         {
             tmp = menu.transform.position.x;
             menu.transform.Translate(-(menu.transform.position.x), 0, 0);
         }
-        else if(menu.transform.position.x == 0)
+        else if (menu.transform.position.x == 0)
         {
             menu.transform.Translate(tmp, 0, 0);
         }
-    }
-
-    public void Roll(float pos)
-    {
-      
     }
 }

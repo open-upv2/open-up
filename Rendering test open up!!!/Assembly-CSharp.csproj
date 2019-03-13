@@ -61,6 +61,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Assets\script\CharlisText.cs" />
+    <Compile Include="Assets\script\Colision.cs" />
     <Compile Include="Assets\script\ExitGame.cs" />
     <Compile Include="Assets\script\Inventory.cs" />
     <Compile Include="Assets\script\Menutoggle.cs" />

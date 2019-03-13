@@ -5,6 +5,7 @@ using UnityEngine;
 public class PickUp : MonoBehaviour
 {
     public GameObject ObjectPick;
+    public GameObject InvenObject;
 
     void OnMouseDown()
     {
@@ -12,9 +13,9 @@ public class PickUp : MonoBehaviour
         //{
         ObjectPick.SetActive(false);
         Debug.Log("pick helmet");
+        InvenObject.SetActive(true);
         //}
         //check if have require item or not
-
     }
 
 }
