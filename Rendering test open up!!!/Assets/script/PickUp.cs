@@ -4,12 +4,17 @@ using UnityEngine;
 
 public class PickUp : MonoBehaviour
 {
-    //public GameObject ObjectPick;
+    public GameObject ObjectPick;
 
-    void OnMouseDown(GameObject ObjectPick)
+    void OnMouseDown()
     {
-       ObjectPick.SetActive(false);
+        //if (require == "")
+        //{
+        ObjectPick.SetActive(false);
         Debug.Log("pick helmet");
+        //}
+        //check if have require item or not
+
     }
 
 }
