@@ -64,6 +64,7 @@
     <Compile Include="Assets\script\Colision.cs" />
     <Compile Include="Assets\script\ExitGame.cs" />
     <Compile Include="Assets\script\Inventory.cs" />
+    <Compile Include="Assets\script\Main.cs" />
     <Compile Include="Assets\script\Menutoggle.cs" />
     <Compile Include="Assets\script\PickUp.cs" />
     <Compile Include="Assets\script\SwitchScene.cs" />
