@@ -40,11 +40,11 @@ public class SwitchScene : MonoBehaviour
 
         }
     }
-    //public void SceneLoader(string scene)
-    //{
-    //    Scene current = SceneManager.GetActiveScene();
-    //    string sceneName = current.name;
+    public void SceneLoader(string scene)
+    {
+        Scene current = SceneManager.GetActiveScene();
+        string sceneName = current.name;
 
-    //        SceneManager.LoadScene(scene);
-    //}
+        SceneManager.LoadScene(scene);
+    }
 }

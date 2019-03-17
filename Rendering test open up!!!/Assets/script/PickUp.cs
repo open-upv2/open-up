@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using UnityEngine.SceneManagement;
 using UnityEngine;
 
 
@@ -7,6 +8,9 @@ public class PickUp : MonoBehaviour
 {
     public GameObject ObjectPick;
     public GameObject InvenObject;
+    public GameObject need;
+    public string scene;
+    int over;
 
     static int InvenCount = 0;
 
@@ -14,17 +18,21 @@ public class PickUp : MonoBehaviour
     {
         //if (require == "")
         //{
-        ObjectPick.SetActive(false);
-        //Debug.Log("pick helmet");
-        InvenObject.SetActive(true);
-        InvenCount++;
-        if(InvenCount >= 1)
+        if(/*need != null && */need.activeSelf == true)
         {
-            InvenObject.transform.Translate((InvenCount-1) * 1, 0, 0);
+            ObjectPick.SetActive(false);
+            InvenObject.SetActive(true);
+            InvenCount++;
+            if (InvenCount >= 1)
+            {
+                InvenObject.transform.Translate((InvenCount - 1) * 1, 0, 0);
+            }
+            Debug.Log(InvenCount);
         }
-        Debug.Log(InvenCount);
-        //}
-        //check if have require item or not
+        else
+        {
+            SceneManager.LoadScene(scene);
+        }
     }
 
 }

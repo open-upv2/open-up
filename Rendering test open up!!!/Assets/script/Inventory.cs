@@ -15,7 +15,7 @@ public class Inventory : MonoBehaviour
             bool isActive = menu.activeSelf;
 
             menu.SetActive(!isActive);
-            Roll();
+            //Roll();
         }
     }
 
