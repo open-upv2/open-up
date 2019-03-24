@@ -6,6 +6,7 @@ public class Inventory : MonoBehaviour
 {
     float tmp;
     public GameObject menu;
+    public GameObject[] invenItem;
 
     // Start is called before the first frame update
     public void OpenMenu()
@@ -15,7 +16,6 @@ public class Inventory : MonoBehaviour
             bool isActive = menu.activeSelf;
 
             menu.SetActive(!isActive);
-            //Roll();
         }
     }
 
