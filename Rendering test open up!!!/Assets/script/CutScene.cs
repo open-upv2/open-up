@@ -8,9 +8,10 @@ public class CutScene : MonoBehaviour
     public GameObject NextScene;
 
     // Start is called before the first frame update
-    private void OnMouseDown()
+    public void SwitchCutScene()
     {
         CurScene.SetActive(false);
+        if(NextScene!= null)
         NextScene.SetActive(true);
     }
 
