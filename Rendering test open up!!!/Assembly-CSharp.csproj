@@ -61,9 +61,6 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Assets\script\CharlisText.cs" />
-    <Compile Include="Assets\script\Colision.cs" />
-    <Compile Include="Assets\script\Combine.cs" />
-    <Compile Include="Assets\script\Cutscene Trigger.cs" />
     <Compile Include="Assets\script\CutScene.cs" />
     <Compile Include="Assets\script\ExitGame.cs" />
     <Compile Include="Assets\script\Inventory\HUD.cs" />
@@ -75,15 +72,12 @@
     <Compile Include="Assets\script\Inventory\PickUps.cs" />
     <Compile Include="Assets\script\Inventory\PlayerController.cs" />
     <Compile Include="Assets\script\ItemInvenSelect.cs" />
-    <Compile Include="Assets\script\Main.cs" />
     <Compile Include="Assets\script\Menutoggle.cs" />
-    <Compile Include="Assets\script\OnItemClick.cs" />
     <Compile Include="Assets\script\PickUp.cs" />
-    <Compile Include="Assets\script\PickUpNeed.cs" />
-    <Compile Include="Assets\script\SetActive.cs" />
-    <Compile Include="Assets\script\SetInActive.cs" />
     <Compile Include="Assets\script\SwitchScene.cs" />
-    <Compile Include="Assets\script\UseItem.cs" />
+    <Compile Include="Assets\script\TextFade.cs" />
+    <Compile Include="Assets\ScriptLV1\Colision.cs" />
+    <Compile Include="Assets\ScriptLV1\Cutscene Trigger.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\Benchmark01.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\Benchmark01_UGUI.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\Benchmark02.cs" />

@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class ItemInvenSelect : MonoBehaviour
 {
@@ -11,6 +12,10 @@ public class ItemInvenSelect : MonoBehaviour
     public GameObject Select2;
     public GameObject Result;
     public GameObject Item2;
+    public string CombineSC;
+
+    [SerializeField]
+    private Text CharlisText = null;
 
     public void ItemCombine()
     {
@@ -20,10 +25,14 @@ public class ItemInvenSelect : MonoBehaviour
             {
                 Select2.SetActive(false);
                 Result.SetActive(true);
-            }
-            if (Item2 != null)
-            {
-                Item2.SetActive(false);
+                if (Item2 != null)
+                {
+                    Item2.SetActive(false);
+                }
+                if(CombineSC != null)
+                {
+                    CharlisText.text = CombineSC;
+                }
             }
         }
     }

@@ -7,6 +7,7 @@ using UnityEngine;
 
 public class SwitchScene : MonoBehaviour
 {
+    public GameObject player;
     public void sceneSwitch(int arrow)
     {
         if (Camera.main.gameObject.transform.position.x <= 1)
@@ -15,11 +16,13 @@ public class SwitchScene : MonoBehaviour
             {
                 //R
                 Camera.main.transform.Translate(45.17f, 0, 0);
+                player.transform.Translate(45.17f, 0, 0);
             }
             else if (arrow == 2)
             {
                 //L
                 Camera.main.transform.Translate(21.58f, 0, 0);
+                player.transform.Translate(21.58f, 0, 0);
             }
         }
         else if (Camera.main.gameObject.transform.position.x >= 40.0f)
@@ -28,6 +31,7 @@ public class SwitchScene : MonoBehaviour
             if (arrow == 2)
             {
                 Camera.main.transform.Translate(-45.17f, 0, 0);
+                player.transform.Translate(-45.17f, 0, 0);
             }
         }
         else
@@ -36,6 +40,7 @@ public class SwitchScene : MonoBehaviour
             if (arrow == 1)
             {
                 Camera.main.transform.Translate(-21.58f, 0, 0);
+                player.transform.Translate(-21.58f, 0, 0);
             }
 
         }
