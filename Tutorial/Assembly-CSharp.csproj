@@ -61,6 +61,11 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Assets\Script\Arrow.cs" />
+    <Compile Include="Assets\Script\DestroyObj.cs" />
+    <Compile Include="Assets\Script\Interact.cs" />
+    <Compile Include="Assets\Script\InvenAppear.cs" />
+    <Compile Include="Assets\Script\InvenButton.cs" />
+    <Compile Include="Assets\Script\Menutoggle.cs" />
     <Compile Include="Assets\Script\PickObj.cs" />
     <Compile Include="Assets\Script\PlayerController.cs" />
     <Reference Include="Unity.TextMeshPro.Editor">

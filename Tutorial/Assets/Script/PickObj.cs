@@ -5,14 +5,18 @@ using UnityEngine;
 public class PickObj : MonoBehaviour
 {
     public bool select = false;
-    public string Say = "Helmet";
     public int numberTag;
-    public int nameTag;
+    public string ObjectPicked;
     public string need1;
+    public string need2;
+    public GameObject InvenItem;
+    public GameObject UseItem;
+    public GameObject UseItem2;
+    public bool destroy;
 
     // Start is called before the first frame update
     private void OnMouseDown()
     {
-        select = (!select);
+        select = true;
     }
 }

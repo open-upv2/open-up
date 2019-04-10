@@ -6,6 +6,8 @@ TagManager:
   tags:
   - Collectable
   - Arrow
+  - Scene
+  - Interact
   layers:
   - Default
   - TransparentFX

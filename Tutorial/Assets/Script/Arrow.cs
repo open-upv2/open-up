@@ -5,8 +5,9 @@ using UnityEngine;
 public class Arrow : MonoBehaviour
 {
     public GameObject ArrowImage;
-    public int NextScene;
+    public GameObject NextScene;
     public string CharacterPos;
+    public bool select = false;
 
     private void OnMouseOver()
     {
@@ -16,6 +17,11 @@ public class Arrow : MonoBehaviour
     private void OnMouseExit()
     {
         ArrowImage.SetActive(false);
+    }
+
+    private void OnMouseDown()
+    {
+        select = true;
     }
 
 }
