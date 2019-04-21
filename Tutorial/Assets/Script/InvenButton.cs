@@ -4,15 +4,21 @@ using UnityEngine;
 
 public class InvenButton : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
+    public int slotNum;
+    public GameObject player;
+
+    public void Update()
     {
-        
+        PlayerController PlayerControl = player.GetComponent<PlayerController>();
     }
 
-    // Update is called once per frame
-    void Update()
+    public void Selected()
     {
-        
+        PlayerController PlayerControl = player.GetComponent<PlayerController>();
+        if(PlayerControl.Inventory.Count >= slotNum /*&& PlayerControl.Inventory[slotNum] != null*/)
+        {
+            Debug.Log(PlayerControl.Inventory[slotNum]);
+        }
+
     }
 }

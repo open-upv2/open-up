@@ -13,10 +13,18 @@ public class PickObj : MonoBehaviour
     public GameObject UseItem;
     public GameObject UseItem2;
     public bool destroy;
+    public AudioSource PickingSound;
+    public AudioSource UsingSound;
+    GameObject[] Collectable;
 
     // Start is called before the first frame update
     private void OnMouseDown()
     {
+        Collectable = GameObject.FindGameObjectsWithTag("Collectable");
+        foreach (GameObject item in Collectable)
+        {
+            item.GetComponent<PickObj>().select = false;
+        }
         select = true;
     }
 }

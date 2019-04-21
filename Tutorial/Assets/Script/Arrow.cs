@@ -8,6 +8,7 @@ public class Arrow : MonoBehaviour
     public GameObject NextScene;
     public string CharacterPos;
     public bool select = false;
+    GameObject[] Collectable;
 
     private void OnMouseOver()
     {
@@ -21,6 +22,11 @@ public class Arrow : MonoBehaviour
 
     private void OnMouseDown()
     {
+        Collectable = GameObject.FindGameObjectsWithTag("Collectable");
+        foreach (GameObject item in Collectable)
+        {
+            item.GetComponent<PickObj>().select = false;
+        }
         select = true;
     }
 

@@ -9,29 +9,32 @@ public class PlayerController : MonoBehaviour
     float speed = 4.0f;
     public Vector3 target;
 
-    private List<string> Inventory = new List<string>();
+    public List<string> Inventory = new List<string>();
+    public List<Item> Innventory = new List<Item>();
     int InvenSize = 0;
-    
+    public string select = "";
 
     public bool stay = true;
     public bool exit = true;
     public float moveSpeed;
     public GameObject playerText;
+    Text PlayerDialogue;
     public Animator PlayerAnimator;
     public AudioSource ThemeSong;
     public Animation Interacting;
     public GameObject[] AllScene;
+    GameObject[] Collectable;
     int a = 0;
     bool faceLeft = true;
     bool walk = true;
-    bool interact = false;
+    public bool interact = false;
 
     string[] DialoguePick = new string[]
     {
         "",
         "Well, this is an alien sense of decorating alright...",//pick battery from flashlight
-        "Well even if they aren't aliens I'll be sure to call them out for their trashing habits.", //pick battery on ground
-        "I don't think you throw the thing you clean with out when you clean up.", //Pick vacum
+        "Huh, why'd they throw away something that's still working?", //pick battery on ground
+        "Ironic..", //Pick vacum
         "Huh, it's still working fine... Wonder why they threw it out?" //Pick termite
     };
 
@@ -39,42 +42,43 @@ public class PlayerController : MonoBehaviour
     void Start()
     {
         target = gameObject.transform.position;
-        playerText.GetComponent<Text>().text = "";
+        PlayerDialogue = playerText.GetComponent<Text>();
+        PlayerDialogue.text = "";
         ThemeSong.Play();
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetMouseButtonDown(0) && walk == true && interact == false)
+        if (Input.GetMouseButtonDown(0) /*&& walk == true*/ && interact == false)
         {
             walk = false;
-            playerText.GetComponent<Text>().text = "";
+            PlayerDialogue.text = "";
             PlayerAnimator.SetBool("Walk", true);
             target = Camera.main.ScreenToWorldPoint(Input.mousePosition);
             target.y = gameObject.transform.position.y;
             target.z = gameObject.transform.position.z;
         }
         //turn left-right
-        if(target.x < gameObject.transform.position.x && faceLeft == false)
+        if (target.x < gameObject.transform.position.x && faceLeft == false)
         {
             faceLeft = true;
             gameObject.transform.Rotate(new Vector3(0, 180, 0));
             playerText.transform.Rotate(new Vector3(0, 180, 0));
         }
-        else if(target.x > gameObject.transform.position.x && faceLeft == true)
+        else if (target.x > gameObject.transform.position.x && faceLeft == true)
         {
             faceLeft = false;
             gameObject.transform.Rotate(new Vector3(0, 180, 0));
             playerText.transform.Rotate(new Vector3(0, 180, 0));
         }
         transform.position = Vector3.MoveTowards(transform.position, target, speed * Time.deltaTime);
-        if(gameObject.transform.position == target)
+        if (gameObject.transform.position == target)
         {
             PlayerAnimator.SetBool("Walk", false);
             walk = true;
         }
-        
+
     }
 
     private void OnTriggerStay2D(Collider2D collision)
@@ -90,8 +94,8 @@ public class PlayerController : MonoBehaviour
                 {
                     Inventory.Add(ObjPick.ObjectPicked);
                     InvenSize++;
-                    Debug.Log("Add");
-                    Debug.Log(ObjPick.ObjectPicked);
+                    if (ObjPick.PickingSound != null)
+                        ObjPick.PickingSound.Play();
                     if (ObjPick.InvenItem != null)
                         ObjPick.InvenItem.SetActive(true);
                 }
@@ -111,7 +115,7 @@ public class PlayerController : MonoBehaviour
                 {
                     if (ObjPick.need1 == Inventory[i])
                     {
-                        if(ObjPick.need2 != "")
+                        if (ObjPick.need2 != "")
                         {
                             for (int j = 0; j < InvenSize; j++)
                             {
@@ -121,9 +125,9 @@ public class PlayerController : MonoBehaviour
                                     PlayerAnimator.SetBool("CollectItem", true);
                                     Inventory.Add(ObjPick.ObjectPicked);
                                     InvenSize++;
-                                    Debug.Log("Add");
-                                    Debug.Log(ObjPick.ObjectPicked);
                                     a = ObjPick.numberTag;
+                                    if (ObjPick.PickingSound != null)
+                                        ObjPick.PickingSound.Play();
                                     if (ObjPick.InvenItem != null)
                                         ObjPick.InvenItem.SetActive(true);
                                     if (ObjPick.UseItem != null)
@@ -152,8 +156,8 @@ public class PlayerController : MonoBehaviour
                             PlayerAnimator.SetBool("CollectItem", true);
                             Inventory.Add(ObjPick.ObjectPicked);
                             InvenSize++;
-                            Debug.Log("Add");
-                            Debug.Log(ObjPick.ObjectPicked);
+                            if (ObjPick.PickingSound != null)
+                                ObjPick.PickingSound.Play();
                             a = ObjPick.numberTag;
                             if (ObjPick.InvenItem != null)
                                 ObjPick.InvenItem.SetActive(true);
@@ -173,17 +177,19 @@ public class PlayerController : MonoBehaviour
                             StopCoroutine(ShowText());
                             break;
                         }
-                        
+
                     }
                 }
             }
         }
         else if (collision.gameObject.tag == "Arrow" && collision.gameObject.GetComponent<Arrow>().select)
         {
+            Arrow SelectedArrow;
+            SelectedArrow = collision.gameObject.GetComponent<Arrow>();
             PlayerAnimator.SetBool("Turn", true);
-            ChangeScene(collision.gameObject.GetComponent<Arrow>().NextScene, collision.gameObject.GetComponent<Arrow>().CharacterPos);
-            collision.gameObject.GetComponent<Arrow>().select = false;
-            collision.gameObject.GetComponent<Arrow>().ArrowImage.SetActive(false);
+            ChangeScene(SelectedArrow.NextScene, SelectedArrow.CharacterPos);
+            SelectedArrow.select = false;
+            SelectedArrow.ArrowImage.SetActive(false);
         }
         else if (collision.gameObject.tag == "Interact" && collision.gameObject.GetComponent<Interact>().select)
         {
@@ -191,6 +197,8 @@ public class PlayerController : MonoBehaviour
             Interact ObjFunction = collision.gameObject.GetComponent<Interact>();
             if (ObjFunction.Function == "ClickToDestroy")
             {
+                if (ObjFunction.InteractingSound != null)
+                    ObjFunction.InteractingSound.Play();
                 if (ObjFunction.ObjAppear != null)
                 {
                     ObjFunction.ObjAppear.SetActive(true);
@@ -214,7 +222,7 @@ public class PlayerController : MonoBehaviour
         for (int i = 0; i <= ClarisText.Length; i++)
         {
             currentText = ClarisText.Substring(0, i);
-            playerText.GetComponent<Text>().text = currentText;
+            PlayerDialogue.text = currentText;
             yield return new WaitForSeconds(0.05f);
         }
         PlayerAnimator.SetBool("CollectItem", false);
@@ -229,20 +237,26 @@ public class PlayerController : MonoBehaviour
             scene.SetActive(false);
         }
         Scene.SetActive(true);
-        if(CPos == "right")
+        if (CPos == "right")
         {
             gameObject.transform.position = new Vector3(6.0f, gameObject.transform.position.y, 0.0f);
         }
-        else if(CPos == "left")
+        else if (CPos == "left")
         {
             gameObject.transform.position = new Vector3(-6.0f, gameObject.transform.position.y, 0.0f);
         }
-        else if(CPos == "middle")
+        else if (CPos == "middle")
         {
             gameObject.transform.position = new Vector3(0.0f, gameObject.transform.position.y, 0.0f);
         }
         PlayerAnimator.SetBool("Turn", false);
         target = transform.position;
+    }
+
+    public class Item : MonoBehaviour
+    {
+        Image image;
+        string ItemName;
     }
 
 }
