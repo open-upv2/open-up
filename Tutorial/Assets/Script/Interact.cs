@@ -11,7 +11,7 @@ public class Interact : MonoBehaviour
 
     private void OnMouseDown()
     {
-        select = (!select);
+        select = true;
     }
 
 }

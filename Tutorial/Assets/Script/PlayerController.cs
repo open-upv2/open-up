@@ -8,15 +8,17 @@ public class PlayerController : MonoBehaviour
 
     float speed = 4.0f;
     public Vector3 target;
+    public Cursor cursor;
 
-    public List<string> Inventory = new List<string>();
+    //Use In Inventory
+    //public List<string> Inventory = new List<string>();
     public List<Item> Innventory = new List<Item>();
-    int InvenSize = 0;
-    public string select = "";
+    public int InvenSize = 0;
+    public bool interact = false;
+    public int SelectItem;
+    public bool Hold;
+    public Sprite Blank;
 
-    public bool stay = true;
-    public bool exit = true;
-    public float moveSpeed;
     public GameObject playerText;
     Text PlayerDialogue;
     public Animator PlayerAnimator;
@@ -27,15 +29,19 @@ public class PlayerController : MonoBehaviour
     int a = 0;
     bool faceLeft = true;
     bool walk = true;
-    public bool interact = false;
+    public float moveSpeed;
+    public bool stayStill = false;
 
     string[] DialoguePick = new string[]
     {
         "",
-        "Well, this is an alien sense of decorating alright...",//pick battery from flashlight
-        "Huh, why'd they throw away something that's still working?", //pick battery on ground
-        "Ironic..", //Pick vacum
-        "Huh, it's still working fine... Wonder why they threw it out?" //Pick termite
+        "Well, this is an alien sense of decorating alright...",//1 pick battery from flashlight
+        "I know they say don't throw these in the bin but...", //2 pick battery on ground
+        "Ironic..", //3 Pick vacum
+        "Huh, it's still working fine... Wonder why they threw it out?", //4 Pick termite
+        "Need another one...", //5 Put in 1 battery
+        "Should be up and running..." //6 Put in 2 Battery
+        
     };
 
     // Start is called before the first frame update
@@ -50,34 +56,39 @@ public class PlayerController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetMouseButtonDown(0) /*&& walk == true*/ && interact == false)
+        if (stayStill == false)
         {
-            walk = false;
-            PlayerDialogue.text = "";
-            PlayerAnimator.SetBool("Walk", true);
-            target = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-            target.y = gameObject.transform.position.y;
-            target.z = gameObject.transform.position.z;
+            if (Input.GetMouseButtonDown(0))
+            {
+                walk = false;
+                PlayerDialogue.text = "";
+                PlayerAnimator.SetBool("CollectItem", false);
+                PlayerAnimator.SetBool("Walk", true);
+                target = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+                target.y = gameObject.transform.position.y;
+                target.z = gameObject.transform.position.z;
+            }
+            //turn left-right
+            if (target.x < gameObject.transform.position.x && faceLeft == false)
+            {
+                faceLeft = true;
+                gameObject.transform.Rotate(new Vector3(0, 180, 0));
+                playerText.transform.Rotate(new Vector3(0, 180, 0));
+            }
+            else if (target.x > gameObject.transform.position.x && faceLeft == true)
+            {
+                faceLeft = false;
+                gameObject.transform.Rotate(new Vector3(0, 180, 0));
+                playerText.transform.Rotate(new Vector3(0, 180, 0));
+            }
+            transform.position = Vector3.MoveTowards(transform.position, target, speed * Time.deltaTime);
+            if (gameObject.transform.position == target)
+            {
+                PlayerAnimator.SetBool("Walk", false);
+                walk = true;
+            }
         }
-        //turn left-right
-        if (target.x < gameObject.transform.position.x && faceLeft == false)
-        {
-            faceLeft = true;
-            gameObject.transform.Rotate(new Vector3(0, 180, 0));
-            playerText.transform.Rotate(new Vector3(0, 180, 0));
-        }
-        else if (target.x > gameObject.transform.position.x && faceLeft == true)
-        {
-            faceLeft = false;
-            gameObject.transform.Rotate(new Vector3(0, 180, 0));
-            playerText.transform.Rotate(new Vector3(0, 180, 0));
-        }
-        transform.position = Vector3.MoveTowards(transform.position, target, speed * Time.deltaTime);
-        if (gameObject.transform.position == target)
-        {
-            PlayerAnimator.SetBool("Walk", false);
-            walk = true;
-        }
+            
 
     }
 
@@ -86,99 +97,62 @@ public class PlayerController : MonoBehaviour
         if (collision.gameObject.GetComponent<PickObj>() != null && collision.gameObject.GetComponent<PickObj>().select)
         {
             PickObj ObjPick = collision.gameObject.GetComponent<PickObj>();
-            if (ObjPick.need1 == "")
+            AudioSource PlayerAudio = gameObject.GetComponent<AudioSource>();
+            PlayerAudio.clip = ObjPick.PickingSound;
+            if (ObjPick.ItemToUse == "") //No item needed
             {
-                target = gameObject.transform.position;
-                PlayerAnimator.SetBool("CollectItem", true);
-                if (ObjPick.ObjectPicked != "")
+                stayStill = true; //cannot walk
+                target = gameObject.transform.position; //stay in that place
+                PlayerAnimator.SetBool("CollectItem", true); // play animation
+                Item tmp = new Item();
+                tmp.ItemImage = ObjPick.ItemImage;
+                tmp.ItemName = ObjPick.ItemName;
+                if(ObjPick.pick == true)
                 {
-                    Inventory.Add(ObjPick.ObjectPicked);
+                    Innventory.Add(tmp); // add item to inventory
                     InvenSize++;
-                    if (ObjPick.PickingSound != null)
-                        ObjPick.PickingSound.Play();
-                    if (ObjPick.InvenItem != null)
-                        ObjPick.InvenItem.SetActive(true);
+                }
+                if (ObjPick.PickingSound != null) // Play audio
+                {
+                    PlayerAudio.Play();
+                    Debug.Log("Sound");
                 }
 
-                a = ObjPick.numberTag;
+                a = ObjPick.DialogueTag; //update player text
                 StartCoroutine(ShowText());
-                ObjPick.select = false;
-                if (ObjPick.destroy == true)
-                {
-                    Destroy(collision.gameObject);
-                }
+                Destroy(collision.gameObject);
                 StopCoroutine(ShowText());
             }
             else
             {
-                for (int i = 0; i < InvenSize; i++)
+                if(ObjPick.ItemToUse == Innventory[SelectItem].ItemName && Hold == true)
                 {
-                    if (ObjPick.need1 == Inventory[i])
+                    stayStill = true;
+                    target = gameObject.transform.position;
+                    PlayerAnimator.SetBool("CollectItem", true);
+                    Item tmp = new Item();
+                    tmp.ItemImage = ObjPick.ItemImage;
+                    tmp.ItemName = ObjPick.ItemName;
+                    if (ObjPick.pick == true)
                     {
-                        if (ObjPick.need2 != "")
-                        {
-                            for (int j = 0; j < InvenSize; j++)
-                            {
-                                if (ObjPick.need2 == Inventory[j])
-                                {
-                                    target = gameObject.transform.position;
-                                    PlayerAnimator.SetBool("CollectItem", true);
-                                    Inventory.Add(ObjPick.ObjectPicked);
-                                    InvenSize++;
-                                    a = ObjPick.numberTag;
-                                    if (ObjPick.PickingSound != null)
-                                        ObjPick.PickingSound.Play();
-                                    if (ObjPick.InvenItem != null)
-                                        ObjPick.InvenItem.SetActive(true);
-                                    if (ObjPick.UseItem != null)
-                                    {
-                                        Destroy(ObjPick.UseItem);
-                                    }
-                                    if (ObjPick.UseItem2 != null)
-                                    {
-                                        Destroy(ObjPick.UseItem2);
-                                    }
-                                    StartCoroutine(ShowText());
-                                    if (ObjPick.destroy == true)
-                                    {
-                                        Destroy(collision.gameObject);
-                                    }
-                                    StopCoroutine(ShowText());
-                                    break;
-                                }
-
-                            }
-
-                        }
-                        else
-                        {
-                            target = gameObject.transform.position;
-                            PlayerAnimator.SetBool("CollectItem", true);
-                            Inventory.Add(ObjPick.ObjectPicked);
-                            InvenSize++;
-                            if (ObjPick.PickingSound != null)
-                                ObjPick.PickingSound.Play();
-                            a = ObjPick.numberTag;
-                            if (ObjPick.InvenItem != null)
-                                ObjPick.InvenItem.SetActive(true);
-                            if (ObjPick.UseItem != null)
-                            {
-                                Destroy(ObjPick.UseItem);
-                            }
-                            if (ObjPick.UseItem2 != null)
-                            {
-                                Destroy(ObjPick.UseItem2);
-                            }
-                            StartCoroutine(ShowText());
-                            if (ObjPick.destroy == true)
-                            {
-                                Destroy(collision.gameObject);
-                            }
-                            StopCoroutine(ShowText());
-                            break;
-                        }
-
+                        Innventory.Add(tmp); // add item to inventory
+                        InvenSize++;
                     }
+                    if (ObjPick.PickingSound != null)
+                    {
+                        Debug.Log("Sound");
+                        PlayerAudio.Play();
+                    }
+                    a = ObjPick.DialogueTag;
+                    StartCoroutine(ShowText());
+                    if (ObjPick.destroy == true)
+                    {
+                        Destroy(collision.gameObject);
+                    }
+                    StopCoroutine(ShowText());
+                    Innventory.Remove(Innventory[SelectItem]);
+                    InvenSize--;
+                    cursor.GetComponent<Image>().sprite = Blank;
                 }
             }
         }
@@ -198,7 +172,9 @@ public class PlayerController : MonoBehaviour
             if (ObjFunction.Function == "ClickToDestroy")
             {
                 if (ObjFunction.InteractingSound != null)
+                {
                     ObjFunction.InteractingSound.Play();
+                }
                 if (ObjFunction.ObjAppear != null)
                 {
                     ObjFunction.ObjAppear.SetActive(true);
@@ -226,7 +202,7 @@ public class PlayerController : MonoBehaviour
             yield return new WaitForSeconds(0.05f);
         }
         PlayerAnimator.SetBool("CollectItem", false);
-        interact = false;
+        stayStill = false;
     }
 
     void ChangeScene(GameObject Scene, string CPos)
@@ -253,10 +229,6 @@ public class PlayerController : MonoBehaviour
         target = transform.position;
     }
 
-    public class Item : MonoBehaviour
-    {
-        Image image;
-        string ItemName;
-    }
+
 
 }

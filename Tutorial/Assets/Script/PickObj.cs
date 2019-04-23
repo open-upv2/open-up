@@ -1,20 +1,23 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class PickObj : MonoBehaviour
 {
-    public bool select = false;
-    public int numberTag;
-    public string ObjectPicked;
-    public string need1;
-    public string need2;
-    public GameObject InvenItem;
-    public GameObject UseItem;
-    public GameObject UseItem2;
-    public bool destroy;
-    public AudioSource PickingSound;
-    public AudioSource UsingSound;
+    //property
+    public bool destroy; //Check to destroy object after pick
+    public bool pick; //recieve item or not
+    public AudioClip PickingSound; //Play when pick
+    public string ItemName; //Name Item to add in inventory
+    public Sprite ItemImage; //Sprite Item
+    public int DialogueTag; //Dialogue string Number
+
+    //เงื่อนไข
+    public bool select = false; //Check if to pick up or not
+    public string ItemToUse; //Use item to pick up
+
+    //Other
     GameObject[] Collectable;
 
     // Start is called before the first frame update
@@ -27,4 +30,10 @@ public class PickObj : MonoBehaviour
         }
         select = true;
     }
+}
+
+public class Item
+{
+    public Sprite ItemImage;
+    public string ItemName;
 }

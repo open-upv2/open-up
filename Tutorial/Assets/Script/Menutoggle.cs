@@ -9,6 +9,7 @@ public class Menutoggle : MonoBehaviour
     public GameObject Player;
     PlayerController Controller;
     GameObject[] Collectable;
+    Animator PlayerAni;
 
     public void OpenMenu()
     {
@@ -19,14 +20,20 @@ public class Menutoggle : MonoBehaviour
         }
         Controller = Player.GetComponent<PlayerController>();
         Controller.target = Controller.transform.position;
+        PlayerAni = Player.GetComponent<Animator>();
         if(Panel != null)
         {
-            bool isActive = Panel.activeSelf;
-            bool OtherActive = OtherUI.activeSelf;
-            Controller.interact = !Controller.interact;
-
-            OtherUI.SetActive(!OtherActive);
-            Panel.SetActive(!isActive);
+            if(Panel.activeSelf == false)
+            {
+                Panel.SetActive(true);
+                Controller.stayStill = true;
+                PlayerAni.SetBool("Walk", false);
+            }
+            else if(Panel.activeSelf == true)
+            {
+                Panel.SetActive(false);
+                Controller.stayStill = false;
+            }
         }
     }
 

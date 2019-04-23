@@ -218,3 +218,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   slotNum: 0
   player: {fileID: 3443618987585093086, guid: 7ac25c084b03c7e40bc2a1628e90e8fa, type: 3}
+  SlotImage: {fileID: 6535962950893238842}
