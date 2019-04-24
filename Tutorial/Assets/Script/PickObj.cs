@@ -12,6 +12,7 @@ public class PickObj : MonoBehaviour
     public string ItemName; //Name Item to add in inventory
     public Sprite ItemImage; //Sprite Item
     public int DialogueTag; //Dialogue string Number
+    public int ExploDiaTag;
 
     //เงื่อนไข
     public bool select = false; //Check if to pick up or not

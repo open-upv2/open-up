@@ -44,6 +44,15 @@ public class PlayerController : MonoBehaviour
         
     };
 
+    string[] DialogueExplore = new string[]
+    {
+        "",
+        "Lock",
+        "What a huge anthill!",
+        "No batteries",
+        "Need another one...", //5 Put in 1 battery
+    };
+
     // Start is called before the first frame update
     void Start()
     {
@@ -125,7 +134,7 @@ public class PlayerController : MonoBehaviour
             }
             else
             {
-                if(ObjPick.ItemToUse == Innventory[SelectItem].ItemName && Hold == true)
+                if(Hold == true && ObjPick.ItemToUse == Innventory[SelectItem].ItemName)
                 {
                     stayStill = true;
                     target = gameObject.transform.position;
@@ -140,7 +149,6 @@ public class PlayerController : MonoBehaviour
                     }
                     if (ObjPick.PickingSound != null)
                     {
-                        Debug.Log("Sound");
                         PlayerAudio.Play();
                     }
                     a = ObjPick.DialogueTag;
@@ -152,7 +160,16 @@ public class PlayerController : MonoBehaviour
                     StopCoroutine(ShowText());
                     Innventory.Remove(Innventory[SelectItem]);
                     InvenSize--;
+                    Hold = false;
                     cursor.GetComponent<Image>().sprite = Blank;
+                }
+                else
+                {
+                    stayStill = true;
+                    target = gameObject.transform.position;
+                    a = ObjPick.ExploDiaTag;
+                    StartCoroutine(ShowTextExplo());
+                    ObjPick.select = false;
                 }
             }
         }
@@ -171,6 +188,70 @@ public class PlayerController : MonoBehaviour
             Interact ObjFunction = collision.gameObject.GetComponent<Interact>();
             if (ObjFunction.Function == "ClickToDestroy")
             {
+                if(ObjFunction.ItemToUse == "")
+                {
+                    PlayerAnimator.SetBool("CollectItem", true); // play animation
+                    if (ObjFunction.InteractingSound != null)
+                    {
+                        ObjFunction.InteractingSound.Play();
+                    }
+                    if (ObjFunction.ObjAppear != null)
+                    {
+                        ObjFunction.ObjAppear.SetActive(true);
+                    }
+                    a = ObjFunction.DialogueTag;
+                    StartCoroutine(ShowText());
+                    StopCoroutine(ShowText());
+                    Destroy(collision.gameObject);
+                }
+                else
+                {
+                    if (Hold == true && ObjFunction.ItemToUse == Innventory[SelectItem].ItemName)
+                    {
+                        PlayerAnimator.SetBool("CollectItem", true); // play animation
+                        stayStill = true;
+                        target = gameObject.transform.position;
+                        PlayerAnimator.SetBool("CollectItem", true);
+                        a = ObjFunction.DialogueTag;
+                        StartCoroutine(ShowText());
+                        StopCoroutine(ShowText());
+                        Innventory.Remove(Innventory[SelectItem]);
+                        InvenSize--;
+                        Hold = false;
+                        cursor.GetComponent<Image>().sprite = Blank;
+                        if (ObjFunction.InteractingSound != null)
+                        {
+                            ObjFunction.InteractingSound.Play();
+                        }
+                        if (ObjFunction.ObjAppear != null)
+                        {
+                            ObjFunction.ObjAppear.SetActive(true);
+                        }
+                        if (ObjFunction.destroy == true)
+                        {
+                            Destroy(collision.gameObject);
+                        }
+                        else
+                        {
+                            ObjFunction.select = false;
+                        }
+
+                    }
+                    else
+                    {
+                        stayStill = true;
+                        target = gameObject.transform.position;
+                        a = ObjFunction.ExploTag;
+                        StartCoroutine(ShowTextExplo());
+                        //StopCoroutine(ShowTextExplo());
+                        ObjFunction.select = false;
+                    }
+                }
+
+            }
+            else if(ObjFunction.Function == "dropObject")
+            {
+                PlayerAnimator.SetBool("CollectItem", true); // play animation
                 if (ObjFunction.InteractingSound != null)
                 {
                     ObjFunction.InteractingSound.Play();
@@ -179,7 +260,17 @@ public class PlayerController : MonoBehaviour
                 {
                     ObjFunction.ObjAppear.SetActive(true);
                 }
-                Destroy(collision.gameObject);
+                //while (ObjFunction.ObjAppear.transform.position.y > -3.0f)
+                //{
+                //    ObjFunction.ObjAppear.transform.Translate(0.0f, ObjFunction.ObjAppear.transform.position.y + 0.4f, 0.0f);/*position = Vector3.MoveTowards(transform.position, FallingPos, speed * Time.deltaTime);*/
+                //}
+                a = ObjFunction.DialogueTag;
+                StartCoroutine(ShowText());
+                StopCoroutine(ShowText());
+                if (ObjFunction.destroy == true)
+                {
+                    Destroy(collision.gameObject);
+                }
             }
 
         }
@@ -195,6 +286,20 @@ public class PlayerController : MonoBehaviour
     {
         interact = true;
         ClarisText = DialoguePick[a];
+        for (int i = 0; i <= ClarisText.Length; i++)
+        {
+            currentText = ClarisText.Substring(0, i);
+            PlayerDialogue.text = currentText;
+            yield return new WaitForSeconds(0.05f);
+        }
+        PlayerAnimator.SetBool("CollectItem", false);
+        stayStill = false;
+    }
+
+    public IEnumerator ShowTextExplo()
+    {
+        interact = true;
+        ClarisText = DialogueExplore[a];
         for (int i = 0; i <= ClarisText.Length; i++)
         {
             currentText = ClarisText.Substring(0, i);
