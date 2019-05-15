@@ -60,20 +60,28 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Assets\Script\Appear.cs" />
+    <Compile Include="Assets\Script\AppearFlashlight.cs" />
     <Compile Include="Assets\Script\Arrow.cs" />
-    <Compile Include="Assets\Script\Cursor.cs" />
     <Compile Include="Assets\Script\CutScene.cs" />
     <Compile Include="Assets\Script\DestroyObj.cs" />
-    <Compile Include="Assets\Script\DropObject.cs" />
     <Compile Include="Assets\Script\ExitGame.cs" />
+    <Compile Include="Assets\Script\InGameMenu.cs" />
     <Compile Include="Assets\Script\Interact.cs" />
     <Compile Include="Assets\Script\InvenButton.cs" />
+    <Compile Include="Assets\Script\ItemHold.cs" />
+    <Compile Include="Assets\Script\KeyButton.cs" />
+    <Compile Include="Assets\Script\KeyPad.cs" />
+    <Compile Include="Assets\Script\LevelLoader.cs" />
     <Compile Include="Assets\Script\Menutoggle.cs" />
+    <Compile Include="Assets\Script\Object.cs" />
     <Compile Include="Assets\Script\PickObj.cs" />
-    <Compile Include="Assets\Script\Player.cs" />
     <Compile Include="Assets\Script\PlayerController.cs" />
-    <Compile Include="Assets\Script\PuzzleObject.cs" />
     <Compile Include="Assets\Script\SceneLoader.cs" />
+    <Compile Include="Assets\Script\SetActiveObj.cs" />
+    <Compile Include="Assets\Script\SoundManager1.cs" />
+    <Compile Include="Assets\Script\TestCursor.cs" />
+    <Compile Include="Assets\Script\Wall.cs" />
     <Reference Include="Unity.TextMeshPro.Editor">
       <HintPath>D:/Open up rendering test/Tutorial/Library/ScriptAssemblies/Unity.TextMeshPro.Editor.dll</HintPath>
     </Reference>

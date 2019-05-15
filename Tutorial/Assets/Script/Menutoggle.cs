@@ -10,29 +10,39 @@ public class Menutoggle : MonoBehaviour
     PlayerController Controller;
     GameObject[] Collectable;
     Animator PlayerAni;
+    public Animator InvenBoxAni;
+    bool isOpen;
+
+    private void Start()
+    {
+        Controller = Player.GetComponent<PlayerController>();
+        PlayerAni = Player.GetComponent<Animator>();
+
+    }
 
     public void OpenMenu()
     {
         Collectable = GameObject.FindGameObjectsWithTag("Collectable");
-        foreach (GameObject item in Collectable)
-        {
-            item.GetComponent<PickObj>().select = false;
-        }
-        Controller = Player.GetComponent<PlayerController>();
-        Controller.target = Controller.transform.position;
-        PlayerAni = Player.GetComponent<Animator>();
+            foreach (GameObject item in Collectable)
+            {
+            if(item.GetComponent<PickObj>() != null)
+                item.GetComponent<PickObj>().select = false;
+            }
+
         if(Panel != null)
         {
-            if(Panel.activeSelf == false)
+            if (InvenBoxAni != null)
             {
-                Panel.SetActive(true);
-                Controller.stayStill = true;
-                PlayerAni.SetBool("Walk", false);
-            }
-            else if(Panel.activeSelf == true)
-            {
-                Panel.SetActive(false);
-                Controller.stayStill = false;
+                isOpen = InvenBoxAni.GetBool("OpenInven");
+                InvenBoxAni.SetBool("OpenInven", !isOpen);
+                //if (!isOpen == true)
+                //{
+                //    Controller.stayStill = true;
+                //}
+                //else
+                //{
+                //    Controller.stayStill = false;
+                //}
             }
         }
     }

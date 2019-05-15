@@ -1,0 +1,646 @@
+fileFormatVersion: 2
+guid: 7d98f5054b4917442b69e6f46ccd61ac
+TextureImporter:
+  fileIDToRecycleName:
+    21300000: clarisa_spritesheet_newest_0
+    21300002: clarisa_spritesheet_newest_1
+    21300004: clarisa_spritesheet_newest_2
+    21300006: clarisa_spritesheet_newest_3
+    21300008: clarisa_spritesheet_newest_4
+    21300010: clarisa_spritesheet_newest_5
+    21300012: clarisa_spritesheet_newest_6
+    21300014: clarisa_spritesheet_newest_7
+    21300016: clarisa_spritesheet_newest_8
+    21300018: clarisa_spritesheet_newest_9
+    21300020: clarisa_spritesheet_newest_10
+    21300022: clarisa_spritesheet_newest_11
+    21300024: clarisa_spritesheet_newest_12
+    21300026: clarisa_spritesheet_newest_13
+    21300028: clarisa_spritesheet_newest_14
+    21300030: clarisa_spritesheet_newest_15
+    21300032: clarisa_spritesheet_newest_16
+    21300034: clarisa_spritesheet_newest_17
+    21300036: clarisa_spritesheet_newest_18
+    21300038: clarisa_spritesheet_newest_19
+    21300040: clarisa_spritesheet_newest_20
+    21300042: clarisa_spritesheet_newest_21
+    21300044: clarisa_spritesheet_newest_22
+    21300046: clarisa_spritesheet_newest_23
+    21300048: clarisa_spritesheet_newest_24
+  externalObjects: {}
+  serializedVersion: 9
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: -1
+    aniso: -1
+    mipBias: -100
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  platformSettings:
+  - serializedVersion: 2
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+  - serializedVersion: 2
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+  - serializedVersion: 2
+    buildTarget: iPhone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+  - serializedVersion: 2
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: clarisa_spritesheet_newest_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 1895.8334
+        width: 239.4
+        height: 379.16666
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 745ad157434b0254c82a467f2c90773c
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: clarisa_spritesheet_newest_1
+      rect:
+        serializedVersion: 2
+        x: 239
+        y: 1895.8334
+        width: 239.4
+        height: 379.16666
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8b228cb5be2322c4bba00af9a50603aa
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: clarisa_spritesheet_newest_2
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 1516.8334
+        width: 239.4
+        height: 379.16666
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 64456382713fc93449bd315c192f2b48
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: clarisa_spritesheet_newest_3
+      rect:
+        serializedVersion: 2
+        x: 239
+        y: 1516.8334
+        width: 239.4
+        height: 379.16666
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5e378276273d2e54a9229ee6fd3e52cf
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: clarisa_spritesheet_newest_4
+      rect:
+        serializedVersion: 2
+        x: 478
+        y: 1516.8334
+        width: 239.4
+        height: 379.16666
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f6cc70591a061ab49925fa21b4dfd4ab
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: clarisa_spritesheet_newest_5
+      rect:
+        serializedVersion: 2
+        x: 717
+        y: 1516.8334
+        width: 239.4
+        height: 379.16666
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: cdc0b154beed1ac4dabb656f5f2e0c4b
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: clarisa_spritesheet_newest_6
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 1137.8334
+        width: 239.4
+        height: 379.16666
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e36be895a637f5b42b3abd146877ff8f
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: clarisa_spritesheet_newest_7
+      rect:
+        serializedVersion: 2
+        x: 239
+        y: 1137.8334
+        width: 239.4
+        height: 379.16666
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a4acc9d94af2e6449b494e9ae510641a
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: clarisa_spritesheet_newest_8
+      rect:
+        serializedVersion: 2
+        x: 478
+        y: 1137.8334
+        width: 239.4
+        height: 379.16666
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 74611a4d0e95a0e4b851d8a84ac83fd7
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: clarisa_spritesheet_newest_9
+      rect:
+        serializedVersion: 2
+        x: 717
+        y: 1137.8334
+        width: 239.4
+        height: 379.16666
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 08f98237809a7054db80f14fc6b8f704
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: clarisa_spritesheet_newest_10
+      rect:
+        serializedVersion: 2
+        x: 956
+        y: 1137.8334
+        width: 239.4
+        height: 379.16666
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7707066ce2ee039429c8d3ccbea14b10
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: clarisa_spritesheet_newest_11
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 758.8334
+        width: 239.4
+        height: 379.16666
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: cffe93a70734e984e8c24198b40679ec
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: clarisa_spritesheet_newest_12
+      rect:
+        serializedVersion: 2
+        x: 239
+        y: 758.8334
+        width: 239.4
+        height: 379.16666
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6cbed4b571eef5c4bb0a746463f74374
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: clarisa_spritesheet_newest_13
+      rect:
+        serializedVersion: 2
+        x: 478
+        y: 758.8334
+        width: 239.4
+        height: 379.16666
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ff3bbbb4f2f29c94d879f516296c8f0f
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: clarisa_spritesheet_newest_14
+      rect:
+        serializedVersion: 2
+        x: 717
+        y: 758.8334
+        width: 239.4
+        height: 379.16666
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 83903ca110341ff409b45c92514e1f13
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: clarisa_spritesheet_newest_15
+      rect:
+        serializedVersion: 2
+        x: 956
+        y: 758.8334
+        width: 239.4
+        height: 379.16666
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: dbff419607da9d146b5981fbd6538993
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: clarisa_spritesheet_newest_16
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 379.83334
+        width: 239.4
+        height: 379.16666
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e918aafc902abf845a9ec7e645a98855
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: clarisa_spritesheet_newest_17
+      rect:
+        serializedVersion: 2
+        x: 239
+        y: 379.83334
+        width: 239.4
+        height: 379.16666
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: bbae2e15398e51843a27f2aca0b65b0b
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: clarisa_spritesheet_newest_18
+      rect:
+        serializedVersion: 2
+        x: 478
+        y: 379.83334
+        width: 239.4
+        height: 379.16666
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8860b451c18044240992e90f05e4faeb
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: clarisa_spritesheet_newest_19
+      rect:
+        serializedVersion: 2
+        x: 717
+        y: 379.83334
+        width: 239.4
+        height: 379.16666
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5204acf957957df4db6e90bbfc01371b
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: clarisa_spritesheet_newest_20
+      rect:
+        serializedVersion: 2
+        x: 956
+        y: 379.83334
+        width: 239.4
+        height: 379.16666
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0c403d9d817151c49b2a8f8ce79c13a1
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: clarisa_spritesheet_newest_21
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0.8333435
+        width: 239.4
+        height: 379.16666
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0806bd04fddf5bf4fa905a2091a07688
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: clarisa_spritesheet_newest_22
+      rect:
+        serializedVersion: 2
+        x: 239
+        y: 0.8333435
+        width: 239.4
+        height: 379.16666
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d6207674e8ba1624fb5b8d597642a1cb
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: clarisa_spritesheet_newest_23
+      rect:
+        serializedVersion: 2
+        x: 478
+        y: 0.8333435
+        width: 239.4
+        height: 379.16666
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6cf27e49776ff3b4aafe7596c0ed8e89
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: clarisa_spritesheet_newest_24
+      rect:
+        serializedVersion: 2
+        x: 717
+        y: 0.8333435
+        width: 239.4
+        height: 379.16666
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1df0af83c152db446bfdf64e78181685
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    physicsShape: []
+    bones: []
+    spriteID: b97e7c3fd1014db45ade03cf062e93df
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+  spritePackingTag: 
+  pSDRemoveMatte: 0
+  pSDShowRemoveMatteOption: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

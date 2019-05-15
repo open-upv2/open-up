@@ -8,7 +8,7 @@ public class DestroyObj : MonoBehaviour
     public GameObject NextObj;
     public PlayerController Player;
     public string ItemToUse;
-    public Cursor cursor;
+    public ItemHold cursor;
 
     private void OnMouseDown()
     {

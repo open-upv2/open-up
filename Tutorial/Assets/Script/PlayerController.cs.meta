@@ -3,7 +3,14 @@ guid: b6ca933632a34e543a04dc6f5edf37c6
 MonoImporter:
   externalObjects: {}
   serializedVersion: 2
-  defaultReferences: []
+  defaultReferences:
+  - cursorDefault: {fileID: 2800000, guid: b48359fe2a24d58419862e8ce3bb952f, type: 3}
+  - cursor: {instanceID: 0}
+  - Blank: {instanceID: 0}
+  - playerText: {instanceID: 0}
+  - PlayerAnimator: {instanceID: 0}
+  - ThemeSong: {instanceID: 0}
+  - Interacting: {instanceID: 0}
   executionOrder: 0
   icon: {instanceID: 0}
   userData: 

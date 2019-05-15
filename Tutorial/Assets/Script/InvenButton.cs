@@ -10,11 +10,13 @@ public class InvenButton : MonoBehaviour
     public Image SlotImage;
     PlayerController PlayerControl;
     public GameObject InvenPanel;
-    public Cursor cursor;
+    Animator InvenAni;
+    public ItemHold cursor;
 
     public void Start()
     {
         PlayerControl = player.GetComponent<PlayerController>();
+        InvenAni = InvenPanel.GetComponent<Animator>();
     }
 
     public void Update()
@@ -36,9 +38,8 @@ public class InvenButton : MonoBehaviour
         {
             PlayerControl.SelectItem = slotNum;
             PlayerControl.Hold = true;
-            Debug.Log(PlayerControl.Innventory[PlayerControl.SelectItem].ItemName);
-            Debug.Log(PlayerControl.SelectItem);
-            InvenPanel.SetActive(false);
+            InvenAni.SetBool("OpenInven", false);
+            //InvenPanel.SetActive(false);
             cursor.GetComponent<Image>().sprite = PlayerControl.Innventory[PlayerControl.SelectItem].ItemImage;
             PlayerControl.stayStill = false;
         }
